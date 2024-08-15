@@ -1,12 +1,16 @@
 import Button from "./Button";
 import { useState, useEffect } from "react";
+import { useSpring, animated } from "@react-spring/web";
+import Loader from "./Loader";
 const Generator = () => {
   const [data, setData] = useState({
     id: "",
     advice: "",
   });
   const [click, setClick] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    setIsLoading(true);
     try {
       async function adviceGenerator() {
         const res = await fetch("	https://api.adviceslip.com/advice");
@@ -20,46 +24,63 @@ const Generator = () => {
     } catch (e) {
       console.log("error in fetching", e);
     }
+    setIsLoading(false);
   }, [click]);
   function handleBtnClick() {
     setClick(click + 1);
   }
+  const scaleAnimation = useSpring({
+    from: { transform: "scale(0.95)" },
+    to: { transform: "scale(1)" },
+    reset: true,
+    config: { tension: 210, friction: 50 },
+  });
   return (
     <>
       {" "}
-      <div
-        className="bg-DarkGrayishBlue rounded-lg md:max-w-[30rem] md:min-h-[18rem] shadow-lg  md:p-6 md:space-y-8 
+      <animated.main
+        style={scaleAnimation}
+        className="bg-DarkGrayishBlue rounded-lg max-w-[45rem] 
+        max-h-lg
+        shadow-lg  md:p-6 md:space-y-8 
         sm:mx-4  sm:space-y-6 sm:py-8 sm:px-4
- sm:max-w-[18rem] sm:min-h-[18rem]
 relative
       "
       >
-        <p
-          className="text-NeonGreen font-base text-xs text-center uppercase tracking-[0.25em]
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <animated.p
+              style={scaleAnimation}
+              className="text-NeonGreen font-base text-xs text-center uppercase tracking-[0.25em]
         "
-        >
-          advice#{data.id}
-        </p>
-        <h1
-          className="text-LightCyan font-extrabold md:text-[1.25rem]
+            >
+              advice#{data.id}
+            </animated.p>
+            <animated.h1
+              style={scaleAnimation}
+              className="text-LightCyan font-extrabold md:text-[1.25rem]
     tracking-[0.05em] text-center
     sm:text-[1.15rem]
     "
-        >
-          {data.advice}
-        </h1>
-        <img
-          src="./images/pattern-divider-desktop.svg"
-          alt="divider desktop"
-          className="mx-auto sm:hidden md:block"
-        />
-        <img
-          src="./images/pattern-divider-mobile.svg"
-          alt="divider mobile"
-          className="mx-auto md:hidden"
-        />
-      </div>
-      <Button handleBtnClick={handleBtnClick} />
+            >
+              {data.advice}
+            </animated.h1>
+            <img
+              src="./images/pattern-divider-desktop.svg"
+              alt="divider desktop"
+              className="mx-auto sm:hidden md:block"
+            />
+            <img
+              src="./images/pattern-divider-mobile.svg"
+              alt="divider mobile"
+              className="mx-auto md:hidden"
+            />
+            <Button handleBtnClick={handleBtnClick} />
+          </>
+        )}
+      </animated.main>
     </>
   );
 };
