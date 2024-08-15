@@ -7,16 +7,19 @@ const Generator = () => {
   });
   const [click, setClick] = useState(0);
   useEffect(() => {
-    async function adviceGenerator() {
-      const res = await fetch("	https://api.adviceslip.com/advice");
-      const data = await res.json();
-
-      setData({
-        id: data.slip.id,
-        advice: data.slip.advice,
-      });
+    try {
+      async function adviceGenerator() {
+        const res = await fetch("	https://api.adviceslip.com/advice");
+        const data = await res.json();
+        setData({
+          id: data.slip.id,
+          advice: data.slip.advice,
+        });
+      }
+      adviceGenerator();
+    } catch (e) {
+      console.log("error in fetching", e);
     }
-    adviceGenerator();
   }, [click]);
   function handleBtnClick() {
     setClick(click + 1);
