@@ -43,7 +43,7 @@ Error generating stack: `+i.message+`
 cursor-pointer
 transition-shadow linear duration-300 
 shade
-    `,onClick:e,children:se.jsx("img",{src:"./images/icon-dice.svg",alt:"dice"})}),Td=()=>{const[e,n]=Qn.useState({id:"",advice:""}),[t,r]=Qn.useState(0);Qn.useEffect(()=>{async function i(){const u=await(await fetch("	https://api.adviceslip.com/advice")).json();console.log(u),n({id:u.slip.id,advice:u.slip.advice})}i()},[t]);function l(){r(t+1)}return se.jsxs(se.Fragment,{children:[" ",se.jsxs("div",{className:`bg-DarkGrayishBlue rounded-lg md:max-w-[30rem] md:min-h-[18rem] shadow-lg relative md:p-6 md:space-y-8 
+    `,onClick:e,children:se.jsx("img",{src:"./images/icon-dice.svg",alt:"dice"})}),Td=()=>{const[e,n]=Qn.useState({id:"",advice:""}),[t,r]=Qn.useState(0);Qn.useEffect(()=>{async function i(){const u=await(await fetch("	https://api.adviceslip.com/advice")).json();n({id:u.slip.id,advice:u.slip.advice})}i()},[t]);function l(){r(t+1)}return se.jsxs(se.Fragment,{children:[" ",se.jsxs("div",{className:`bg-DarkGrayishBlue rounded-lg md:max-w-[30rem] md:min-h-[18rem] shadow-lg relative md:p-6 md:space-y-8 
         sm:mx-4  sm:space-y-6 sm:py-8 sm:px-4
  sm:max-w-[18rem] sm:min-h-[18rem]
 
