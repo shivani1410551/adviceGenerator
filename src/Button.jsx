@@ -5,7 +5,7 @@ const Button = ({ handleBtnClick }) => {
 z-100 
 sm:translate-y-[50px]
 sm:left-[40%]
-md:translate-y-[55px]
+md:translate-y-[28px]
 md:left-[45%]
 cursor-pointer
 transition-shadow linear duration-300 

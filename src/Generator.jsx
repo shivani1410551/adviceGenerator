@@ -40,8 +40,8 @@ const Generator = () => {
       {" "}
       <animated.main
         style={scaleAnimation}
-        className="bg-DarkGrayishBlue rounded-lg max-w-[45rem] 
-        max-h-lg
+        className="bg-DarkGrayishBlue rounded-lg max-w-[35rem] 
+        h-[15rem]
         shadow-lg  md:p-6 md:space-y-8 
         sm:mx-4  sm:space-y-6 sm:py-8 sm:px-4
 relative
