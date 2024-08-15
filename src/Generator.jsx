@@ -25,10 +25,10 @@ const Generator = () => {
     <>
       {" "}
       <div
-        className="bg-DarkGrayishBlue rounded-lg md:max-w-[30rem] md:min-h-[18rem] shadow-lg relative md:p-6 md:space-y-8 
+        className="bg-DarkGrayishBlue rounded-lg md:max-w-[30rem] md:min-h-[18rem] shadow-lg  md:p-6 md:space-y-8 
         sm:mx-4  sm:space-y-6 sm:py-8 sm:px-4
  sm:max-w-[18rem] sm:min-h-[18rem]
-
+relative
       "
       >
         <p

@@ -4,9 +4,11 @@ export default {
   theme: {
     screens: {
       sm: "430px",
-      md: "768px",
-      lg: "971px",
-      xl: "1320px",
+      base: "550px",
+      md: "740px",
+      lg: "1024px",
+      xl: "1280px",
+      xxl: "1440px",
     },
     extend: {
       fontFamily: {
